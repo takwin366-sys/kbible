@@ -181,13 +181,18 @@ function updateDisplay() {
     //         .then(html => verseDisplay.innerHTML = html);
 
     // 임시로 구절이 표시되는 것처럼 보이도록 내용을 채웁니다.
-    verseDisplay.innerHTML = '<p><strong>' + book.name + ' ' + currentChapter + '장</strong></p>' +
-                             '<p>이것은 iframe을 사용하지 않고 전체 화면에 구절을 표시하는 예시입니다.</p>' +
-                             '<p>실제 구절 내용은 서버 API를 통해 가져와야 합니다.</p>' +
-                             '<p>구절을 직접 표시하므로, 페이지 전환 없이 빠른 로딩이 가능합니다.</p>' +
-                             '<p>스크롤을 내리면 하단 네비게이션이 사라지고, 올리면 다시 나타납니다.</p>' +
-                             '<p>이전/다음 버튼을 눌러 장을 이동해 보세요.</p>' +
-                             '<div style="height: 1000px; background: #f0f0f0; padding: 20px; text-align: center;">긴 내용 스크롤 테스트 영역</div>';
+    // 실제 구현 시에는 이 부분을 서버 API 호출 결과로 대체해야 합니다.
+    
+    var verseContent = '';
+    // 1장부터 20절까지의 구절을 임시로 생성하여 실제처럼 보이게 합니다.
+    for (var i = 1; i <= 20; i++) {
+        verseContent += '<p><span style="font-weight: bold; color: #007AFF;">' + i + '</span> ' +
+                        '이것은 ' + book.name + ' ' + currentChapter + '장 ' + i + '절의 임시 구절 내용입니다. ' +
+                        '실제 구절은 서버 API를 통해 가져와야 합니다.</p>';
+    }
+
+    verseDisplay.innerHTML = '<p><strong>' + book.name + ' ' + currentChapter + '장</strong></p>' + verseContent +
+                             '<div style="height: 500px; padding: 20px; text-align: center; color: #999;">페이지 끝</div>';
 }
 
 function setupScrollListener() {
