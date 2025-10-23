@@ -1,0 +1,51 @@
+/* 기본 스타일 초기화 */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* ----------------------------------- */
+/* 전체 화면 모달 스타일 */
+/* ----------------------------------- */
+
+#full-screen-modal {
+    position: fixed; /* 뷰포트에 고정 */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 뷰포트 전체 너비 */
+    height: 100vh; /* 뷰포트 전체 높이 */
+    background-color: white; /* 배경색 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 내용이 길면 스크롤 가능 */
+}
+
+/* 모달이 보이지 않게 숨기는 클래스 */
+.hidden {
+    display: none !important;
+}
+
+/* 모달 헤더 (제목 및 닫기 버튼) */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* 내용이 많아도 헤더 크기는 유지 */
+}
+
+/* 모달 내용 (구절 텍스트) */
+.modal-content {
+    padding: 20px;
+    flex-grow: 1; /* 남은 공간을 모두 차지 */
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+/* 닫기 버튼 스타일 */
+#close-modal-btn {
+    padding: 10px 15px;
+    cursor: pointer;
+}
